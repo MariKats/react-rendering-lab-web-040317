@@ -13,6 +13,10 @@ class Survey extends React.Component {
     this.state = {
       rating: 0
     };
+
+    this.increaseRating = this.increaseRating.bind(this)
+    this.decreaseRating = this.decreaseRating.bind(this)
+    this.maintainRating = this.maintainRating.bind(this)
   }
 
   increaseRating = () => {
@@ -25,10 +29,12 @@ class Survey extends React.Component {
 
   maintainRating = () => this.forceUpdate();
 
+
+
   render() {
     return (
       <div>
-        <Rating rating={this.state.rating} />
+        <Rating rating={this.state.rating}/>
         <button onClick={this.increaseRating}>Loved it!</button>
         <button onClick={this.maintainRating}>Indifferent!</button>
         <button onClick={this.decreaseRating}>Hated it!</button>
